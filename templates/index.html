@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Docker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker - Panel Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 <body>
-    <h1>BIENVENIDO</h1>
 
-    <button onclick="window.location.href='/agenda'">
-        Agenda telefónica
-    </button>
+    <div class="container">
+        <h2>BIENVENIDO</h2>
+        <p>Selecciona una herramienta para continuar</p>
 
-    <button onclick="window.location.href='/validador'">
-        Validador de contraseñas
-    </button>
+        <div class="menu-acciones">
+            <button onclick="window.location.href='/agenda'">
+                <span class="icon">📞</span> Agenda telefónica
+            </button>
+
+            <button onclick="window.location.href='/validador'">
+                <span class="icon">🔐</span> Validador de contraseñas
+            </button>
+        </div>
+
+    </div>
 
 </body>
 </html>
