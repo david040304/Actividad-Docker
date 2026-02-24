@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validador de Contraseñas</title>
+</head>
+<body>
+
+<h2>Validador de Contraseñas</h2>
+
+<input type="text" id="password" placeholder="Ingresa tu contraseña">
+<button onclick="validar()">Validar</button>
+
+<p id="resultado"></p>
+
+<!-- BOTÓN VOLVER -->
+<br><br>
+<button onclick="window.location.href='/'">
+    Volver al inicio
+</button>
+
+<script>
+function validar() {
+    const password = document.getElementById("password").value;
+
+    fetch("/validar", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({password: password})
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("resultado").innerText =
+            "Nivel: " + data.nivel +
+            " | Errores: " + data.errores.join(", ");
+    });
+}
+</script>
+
+</body>
+</html>
