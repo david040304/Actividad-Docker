@@ -2,21 +2,31 @@
 <html>
 <head>
     <title>Validador de Contraseñas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='validador.css') }}">
 </head>
 <body>
 
-<h2>Validador de Contraseñas</h2>
+<div class="container">
+    <h2>Validador de Contraseñas</h2>
 
-<input type="text" id="password" placeholder="Ingresa tu contraseña">
-<button onclick="validar()">Validar</button>
+    <input type="password" id="password" placeholder="Ingresa tu contraseña">
+    <button onclick="validar()">Validar</button>
 
-<p id="resultado"></p>
+    <!-- Barra de nivel -->
+    <div class="barra-container">
+        <div id="barra"></div>
+    </div>
 
-<!-- BOTÓN VOLVER -->
-<br><br>
-<button onclick="window.location.href='/'">
-    Volver al inicio
-</button>
+    <div class="nivel-texto">
+        Nivel: <span id="nivel">-</span>
+    </div>
+
+    <div id="errores" class="errores"></div>
+
+    <button class="volver" onclick="window.location.href='/'">
+        Volver al inicio
+    </button>
+</div>
 
 <script>
 function validar() {
@@ -29,9 +39,33 @@ function validar() {
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById("resultado").innerText =
-            "Nivel: " + data.nivel +
-            " | Errores: " + data.errores.join(", ");
+
+        const barra = document.getElementById("barra");
+        const nivelTexto = document.getElementById("nivel");
+        const erroresDiv = document.getElementById("errores");
+
+        nivelTexto.innerText = data.nivel;
+        erroresDiv.innerHTML = "";
+
+        if (data.nivel === "Fuerte") {
+            barra.style.width = "100%";
+            barra.style.backgroundColor = "#2ecc71";
+        } 
+        else if (data.nivel === "Media") {
+            barra.style.width = "50%";
+            barra.style.backgroundColor = "#f1c40f";
+        } 
+        else {
+            barra.style.width = "20%";
+            barra.style.backgroundColor = "#e74c3c";
+        }
+
+        if (data.errores.length > 0) {
+            erroresDiv.innerHTML = "<ul>" +
+                data.errores.map(e => `<li>${e}</li>`).join("") +
+                "</ul>";
+        }
+
     });
 }
 </script>
