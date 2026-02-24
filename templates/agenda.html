@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Telefónica Pro</title>
+    <!-- Tailwind via CDN para prototipado rápido -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Enlace al archivo CSS externo usando url_for de Flask -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">Mi Agenda</h1>
+                <p class="text-gray-600">Gestiona tus contactos fácilmente</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <!-- Botón Volver al inicio corregido para apuntar a 'agenda' -->
+                <a href="{{ url_for('agenda') }}" class="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all font-medium">
+                    <i class="fas fa-home"></i> Volver al inicio
+                </a>
+                <!-- Botón Nuevo Contacto -->
+                <button onclick="openModal()" class="btn-primary">
+                    <i class="fas fa-plus"></i> Nuevo Contacto
+                </button>
+            </div>
+        </header>
+
+        <div class="relative mb-6">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                <i class="fas fa-search"></i>
+            </span>
+            <input type="text" id="searchInput" oninput="searchContacts()" placeholder="Buscar por nombre o teléfono..." class="search-input">
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="table-header">Contacto</th>
+                        <th class="table-header">Email</th>
+                        <th class="table-header text-right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="contactsTable" class="bg-white divide-y divide-gray-200">
+                    <!-- Contenido dinámico -->
+                </tbody>
+            </table>
+            <div id="emptyState" class="hidden p-12 text-center text-gray-500">
+                <i class="fas fa-address-book text-4xl mb-4 opacity-20"></i>
+                <p>No se encontraron contactos.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-xl font-bold text-gray-800">Nuevo Contacto</h3>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="contactForm" class="p-6 space-y-4">
+                <input type="hidden" id="contactId">
+                <div>
+                   <label for="name" class="form-label">Nombre Completo</label>
+                   <input type="text" id="name" required class="form-input">
+                </div>
+                <div>
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <input type="tel" id="phone" required class="form-input">
+                </div>
+                <div>
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" id="email" class="form-input">
+                </div>
+                <div class="pt-4 flex gap-3">
+                    <button type="button" onclick="closeModal()" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-submit">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo JS externo usando url_for de Flask -->
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
