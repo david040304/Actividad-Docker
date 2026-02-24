@@ -8,6 +8,11 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
+@app.route('/agenda')
+def agenda():
+    return render_template("agenda.html")
+
+
 # ===== PAGINA VALIDADOR =====
 @app.route('/validador')
 def validador():
