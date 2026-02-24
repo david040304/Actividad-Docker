@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import re
 
-app = Flask(__name__)
+app = Flask(name)
 
-# ===== PAGINA PRINCIPAL =====
+#===== PAGINA PRINCIPAL =====
 @app.route('/')
 def home():
     return render_template("index.html")
@@ -13,12 +13,12 @@ def agenda():
     return render_template("agenda.html")
 
 
-# ===== PAGINA VALIDADOR =====
+#===== PAGINA VALIDADOR =====
 @app.route('/validador')
 def validador():
     return render_template("validador.html")
 
-# ===== ENDPOINT VALIDAR PASSWORD =====
+#==== ENDPOINT VALIDAR PASSWORD =====
 @app.route('/validar', methods=['POST'])
 def validar_password():
     data = request.get_json()
@@ -50,5 +50,5 @@ def validar_password():
         "errores": errores
     })
 
-if __name__ == '__main__':
+if name == 'main':
     app.run(host="0.0.0.0", port=5000, debug=True)
