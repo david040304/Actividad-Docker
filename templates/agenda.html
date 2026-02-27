@@ -21,9 +21,9 @@
             </div>
             <div class="flex flex-wrap gap-3">
                 <!-- Botón Volver al inicio corregido para apuntar a 'agenda' -->
-                <a href="{{ url_for('agenda') }}" class="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all font-medium">
-                    <i class="fas fa-home"></i> Volver al inicio
-                </a>
+                <button class="volver" onclick="window.location.href='/'">
+                    Volver al inicio
+                </button>
                 <!-- Botón Nuevo Contacto -->
                 <button onclick="openModal()" class="btn-primary">
                     <i class="fas fa-plus"></i> Nuevo Contacto

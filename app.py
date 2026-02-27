@@ -22,7 +22,7 @@ def init_db():
     conn.commit()
     conn.close()
 def get_db_connection():
-    #"""Establece conexión con la DB."""
+   
     conn = sqlite3.connect(DB_NAME)
     conn.row_factory = sqlite3.Row
     return conn

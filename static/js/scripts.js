@@ -1,7 +1,3 @@
-/**
- * Lógica del Frontend para la Agenda Telefónica
- */
-
 let allContacts = [];
 
 // Escuchar cuando el DOM esté listo
