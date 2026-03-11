@@ -45,7 +45,7 @@
     gap: 0.75rem;
 }
 
-/* Buscador (Solución a la lupa) */
+/* Buscador */
 .search-container {
     position: relative;
     margin-bottom: 1.5rem;
@@ -59,13 +59,13 @@
     display: flex;
     align-items: center;
     color: var(--text-muted);
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .search-input {
     display: block;
     width: 100%;
-    padding: 0.6rem 1rem 0.6rem 2.5rem; 
+    padding: 0.6rem 1rem 0.6rem 2.5rem;
     border: 1px solid var(--border-color);
     border-radius: 0.75rem;
     background-color: var(--white);
@@ -193,4 +193,4 @@
     padding-top: 0;
     display: flex;
     gap: 0.75rem;
-} 
+}

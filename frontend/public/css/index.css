@@ -14,7 +14,6 @@ body {
     color: #333;
 }
 
-
 .container {
     background: rgba(255, 255, 255, 0.95);
     padding: 50px 40px;
@@ -22,7 +21,6 @@ body {
     text-align: center;
     width: 100%;
     max-width: 420px;
-    
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -31,9 +29,8 @@ body {
 
 @keyframes slideUp {
     from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-
 
 h2 {
     margin-bottom: 8px;
@@ -49,7 +46,6 @@ p {
     color: #555;
     margin-bottom: 35px;
 }
-
 
 .menu-acciones {
     display: flex;
@@ -75,13 +71,11 @@ button {
     box-shadow: 0 4px 15px rgba(36, 59, 85, 0.3);
 }
 
-
 button:hover {
     background: #141e30;
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
-
 
 button:active {
     transform: translateY(0) scale(0.98);
@@ -91,7 +85,6 @@ button:active {
     font-size: 22px;
     filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
 }
-
 
 input {
     width: 100%;
@@ -123,7 +116,6 @@ input:focus {
     background: linear-gradient(90deg, #ff416c, #ff4b2b);
     transition: width 0.4s ease;
 }
-
 
 .footer-info {
     margin-top: 30px;

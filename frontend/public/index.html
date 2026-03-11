@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docker - Panel Principal</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
 
@@ -13,15 +13,14 @@
         <p>Selecciona una herramienta para continuar</p>
 
         <div class="menu-acciones">
-            <button onclick="window.location.href='/agenda'">
+            <button onclick="window.location.href='/agenda.html'">
                 <span class="icon">📞</span> Agenda telefónica
             </button>
 
-            <button onclick="window.location.href='/validador'">
+            <button onclick="window.location.href='/validador.html'">
                 <span class="icon">🔐</span> Validador de contraseñas
             </button>
         </div>
-
     </div>
 
 </body>

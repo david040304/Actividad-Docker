@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Contraseñas</title>
+    <link rel="stylesheet" href="/css/validador.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Validador de Contraseñas</h2>
+
+    <input type="password" id="password" placeholder="Ingresa tu contraseña">
+    <button onclick="validar()">Validar</button>
+
+    <!-- Barra de nivel -->
+    <div class="barra-container">
+        <div id="barra"></div>
+    </div>
+
+    <div class="nivel-texto">
+        Nivel: <span id="nivel">-</span>
+    </div>
+
+    <div id="errores" class="errores"></div>
+
+    <button class="volver" onclick="window.location.href='/'">
+        Volver al inicio
+    </button>
+</div>
+
+<script src="/js/validador.js"></script>
+</body>
+</html>
